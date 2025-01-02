@@ -1,7 +1,7 @@
 package com.dev.processor.util;
 
-import com.dev.processor.bits.Bit;
-import com.dev.processor.gates.Gate;
+import com.dev.processor.core.bit.Bit;
+import com.dev.processor.components.gates.Gate;
 
 public class Utilities {
 
