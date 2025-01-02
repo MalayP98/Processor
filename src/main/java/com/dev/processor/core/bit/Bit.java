@@ -1,4 +1,4 @@
-package com.dev.processor.bits;
+package com.dev.processor.core.bit;
 
 public enum Bit {
 
@@ -29,5 +29,10 @@ public enum Bit {
 
     public static Bit get(Bit bit){
         return get(bit.value());
+    }
+
+    @Override
+    public String toString(){
+        return String.valueOf(intValue());
     }
 }

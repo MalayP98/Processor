@@ -1,11 +1,11 @@
-package com.dev.processor.clock;
+package com.dev.processor.core.clock;
 
-import com.dev.processor.bits.Bit;
-import com.dev.processor.gates.impl.NotGate;
+import com.dev.processor.components.gates.Gate;
+import com.dev.processor.core.bit.Bit;
 
 import java.util.Queue;
 
-public class Clock {
+public final class Clock {
 
     private final Queue<Bit> bitQueue;
 
@@ -14,12 +14,12 @@ public class Clock {
     }
 
     public void start() throws InterruptedException {
-        NotGate notGate = new NotGate();
         Bit bit = Bit.BIT_0;
         while(true){
-            Thread.sleep(100);
+            Thread.sleep(10);
+            System.out.println(bit);
             bitQueue.add(bit);
-            bit = notGate.calc(bit, null);
+            bit = Gate.NOT.calc(bit, null);
         }
     }
 }
