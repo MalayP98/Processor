@@ -8,7 +8,7 @@ public enum Gate {
 
     AND("AND") {
         @Override
-        public Bit calc(Bit bit0, Bit bit1) {
+        protected Bit calc0(Bit bit0, Bit bit1) {
             if(Objects.isNull(bit0) || Objects.isNull(bit1)){
                 throw new IllegalArgumentException("Bit cannot be null.");
             }
@@ -17,7 +17,7 @@ public enum Gate {
     },
     OR("OR") {
         @Override
-        public Bit calc(Bit bit0, Bit bit1) {
+        protected Bit calc0(Bit bit0, Bit bit1) {
             if(Objects.isNull(bit0) || Objects.isNull(bit1)){
                 throw new IllegalArgumentException("Bit cannot be null.");
             }
@@ -26,7 +26,7 @@ public enum Gate {
     },
     NOT("NOT") {
         @Override
-        public Bit calc(Bit bit0, Bit bit1) {
+        protected Bit calc0(Bit bit0, Bit bit1) {
             if(Objects.isNull(bit0)){
                 throw new IllegalArgumentException("Bit cannot be null.");
             }
@@ -36,7 +36,7 @@ public enum Gate {
 
     NOR("NOR") {
         @Override
-        public Bit calc(Bit bit0, Bit bit1) {
+        protected Bit calc0(Bit bit0, Bit bit1) {
             if(Objects.isNull(bit0) || Objects.isNull(bit1)){
                 throw new IllegalArgumentException("Bit cannot be null.");
             }
@@ -46,7 +46,7 @@ public enum Gate {
 
     XOR("XOR") {
         @Override
-        public Bit calc(Bit bit0, Bit bit1) {
+        protected Bit calc0(Bit bit0, Bit bit1) {
             if(Objects.isNull(bit0) || Objects.isNull(bit1)){
                 throw new IllegalArgumentException("Bit cannot be null.");
             }
@@ -56,8 +56,8 @@ public enum Gate {
 
     NAND("NAND") {
         @Override
-        public Bit calc(Bit bit0, Bit bit1) {
-            return Bit.get(!AND.calc(bit0, bit1).value());
+        protected Bit calc0(Bit bit0, Bit bit1){
+            return Bit.get(!AND.calc0(bit0, bit1).value());
         }
     };
 
@@ -71,5 +71,11 @@ public enum Gate {
         return name;
     }
 
-    public abstract Bit calc(Bit bit0, Bit bit1);
+    protected abstract Bit calc0(Bit bit0, Bit bit1);
+
+    public Bit calc(Bit bit0, Bit bit1) throws InterruptedException {
+        // Every gate has some delay while generating output
+        Thread.sleep(5);
+        return this.calc0(bit0, bit1);
+    }
 }

@@ -5,7 +5,7 @@ import com.dev.processor.components.gates.Gate;
 
 public class Utilities {
 
-    public static String getTruthTable(Gate gate){
+    public static String getTruthTable(Gate gate) throws Exception {
         StringBuilder tableBuilder = new StringBuilder();
         tableBuilder.append(gate.getName()).append("\n");
         for(int i=0; i<=1; i++){

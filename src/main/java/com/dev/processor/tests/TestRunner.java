@@ -9,5 +9,6 @@ public class TestRunner {
         BitCollectionTest.test();
         FourBitAdderTest.test();
         SRLatchTest.test();
+        GateTester.test();
     }
 }
