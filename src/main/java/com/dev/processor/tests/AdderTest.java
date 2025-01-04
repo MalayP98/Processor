@@ -6,7 +6,7 @@ import com.dev.processor.util.Pair;
 
 public class AdderTest {
 
-    public static void main(String[] args) throws Exception {
+    public static void test() throws Exception {
         Pair<Bit, Bit> op = null;
 
         op = Adder.add(Bit.BIT_0, Bit.BIT_0, Bit.BIT_0);

@@ -5,7 +5,7 @@ import com.dev.processor.core.bit.Bit;
 
 public class SRLatchTest {
 
-    public static void main(String[] args) throws Exception {
+    public static void test() throws Exception {
         SRLatch srLatch = new SRLatch();
         Bit q = Bit.BIT_1, qbar = Bit.BIT_0;
         for(int i=0; i<10; i++){
