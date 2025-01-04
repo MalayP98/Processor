@@ -17,7 +17,6 @@ public final class Clock {
         Bit bit = Bit.BIT_0;
         while(true){
             Thread.sleep(10);
-            System.out.println(bit);
             bitQueue.add(bit);
             bit = Gate.NOT.calc(bit, null);
         }

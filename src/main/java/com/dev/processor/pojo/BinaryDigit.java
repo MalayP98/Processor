@@ -28,4 +28,5 @@ public class BinaryDigit extends BitCollection{
         return decimalValue;
     }
 
+
 }
